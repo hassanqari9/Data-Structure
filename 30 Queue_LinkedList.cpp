@@ -1,16 +1,17 @@
 #include <iostream>
 using namespace std;
 
-typedef struct node {
+struct node {
     int Data;
     struct node *next;
-}Node;
+};
 
-Node *Front = NULL, *Rear = NULL;
+struct node *Front = NULL, *Rear = NULL;
 
 void Enqueue(int item)
 {
-    Node *Temp = (Node *)malloc(sizeof(Node));
+    struct node *Temp;
+    Temp = (struct node*)new(struct node);
     Temp -> Data = item;
     Temp -> next = NULL;
     
@@ -27,13 +28,14 @@ void Enqueue(int item)
 
 int Dequeue()
 {
-    Node *Temp;
+    struct node *Temp;
     if(Front == NULL)
         return -1;
     else{
         int item = Front -> Data;
         Temp = Front;
         Front = Front -> next;
+        Temp->next=NULL;
         free(Temp);
         return item;
     }
@@ -41,7 +43,7 @@ int Dequeue()
 
 void View()
 {
-    Node *Trav = Front;
+    struct node *Trav = Front;
     if(Front == NULL)
         cout << "Queue is Empty" << endl;
     else {
