@@ -3,7 +3,7 @@ using namespace std;
 
 void ScanArray(int arr[], int n)
 {
-    cout << "Enetr the Elements of Array : ";
+    cout << "Enter the Elements of Array : ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
