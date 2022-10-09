@@ -1,10 +1,9 @@
 #include <iostream>
 using namespace std;
+int total = 0;
 
 int LenStr(char *str)
 {
-    static int total = 0;
-    
     if(*str == NULL)
        return total;
     else {
