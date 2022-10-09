@@ -1,45 +1,40 @@
-#include <iostream>
-#define MAX 100
+#include<iostream>
 using namespace std;
-
-int Queue[MAX];
-int Front = 0, Rear = -1;
-int Count = 0;
+int Queue[5];
+int Front = 0, Rear =0;
+int count=0;
 
 void Enqueue(int item)
 {
-    if(Count == MAX)
-        cout << "OverFlow";
+    if( ((Rear+1)%5) == Front)
+        cout << "Full";
     else{
-        Rear = (Rear + 1) % (MAX - 1);
-        Queue[Rear] = item;
-        Count++;
+        Rear = (Rear + 1) % (5);
+        Queue[Rear] = item;       // 1, 2, 3, 4
     }
 }
 
 int Dequeue()
 {
-    if(Count == Rear)
-        cout << "UnderFlow";
+    if(Front == Rear)
+        cout << "Empty";
     else{
+        Front = (Front + 1) % (5);
         int item = Queue[Front];
-        Front = (Front + 1) % (MAX - 1);
-        return item;
+         return item;
     }
 }
 
 void View()
 {
-    if(Count == 0)
-        cout << "Empty" << endl;
-    else{
-        int temp = Front;
-        for(int i = 0; i < Count; i++){
-            cout << Queue[temp];
-            temp = (temp + 1) % (MAX - 1);
-        }
-    }
+    int i=Front+1;                                  // 1
+    do{
+        cout<<Queue[i];                             // 1st
+        i=(i+1)%5;                                  // 2
+
+    }while(i!=(Rear+1)%5);
 }
+
 
 int main()
 {
@@ -58,13 +53,10 @@ int main()
         else if(ch == 2)
         {
             item = Dequeue();
-            if(item == -1)
-                cout << "UnderFlow" << endl;
-            else
                 cout << item;
         }
-        else if(ch == 3)
-            View();
+       else if(ch == 3)
+           View();
         else if(ch == 4)
             break;
     }
