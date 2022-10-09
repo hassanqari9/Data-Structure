@@ -48,11 +48,16 @@ void View()
     if(Front == NULL)
         cout << "Queue is Empty" << endl;
     else {
-        while (Trav -> next != Front)
+        while (1)
         {
             cout << Trav -> Data;
-            Trav = Trav -> next;
+            if(trav == Rear)
+                break;
+            else
+                Trav = Trav -> next;
+
         }
+
         
     }
 }
