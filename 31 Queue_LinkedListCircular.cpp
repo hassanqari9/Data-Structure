@@ -36,6 +36,7 @@ int Dequeue()
         int item = Front -> Data;
         Temp = Front;
         Front = Front -> next;
+        Rear->next=Front
         free(Temp);
         return item;
     }
