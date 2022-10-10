@@ -1,29 +1,30 @@
-#include <iostream>
-using namespace std;
-
-bool is_Prime(int n, int k)
-{
-    if(k <= 2) 
-          return true;
-    if(n % k == 0)
-          return false;
-    return is_Prime(n, k-1);
-}
-
-bool isPrime(int n)
-{
-    return is_Prime(n, n-1);
-}
-
-int main() {
-    int num;
-    cout << "Enter Number ";
-    cin >> num;
-    
-    if(isPrime(num))
-       cout << num << " is Prime Number";
-    else
-       cout << num << " is Not Prime Number";
-
-    return 0;
-}
+#include<iostream> 
+ using namespace std; 
+  
+  
+ bool isprime(int n, int k) 
+ { 
+         if( k <= 1 ) 
+         { 
+                 return true; 
+         } 
+          
+         else if(  n % k == 0 ) 
+         { 
+                 return false; 
+         } 
+         else 
+  
+         return isprime(n,k-1); 
+          
+ } 
+  
+ int main() 
+ { 
+         int n,k; 
+         cout<<"Enter the number to check for Prime or Not: "; 
+         cin>>n; 
+         k=n-1; 
+         cout<<isprime(n,k); 
+  
+ }
