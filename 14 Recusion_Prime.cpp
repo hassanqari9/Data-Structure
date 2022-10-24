@@ -15,8 +15,7 @@
          } 
          else 
   
-         return isprime(n,k-1); 
-          
+         return isprime(n,k-1);        
  } 
   
  int main() 
